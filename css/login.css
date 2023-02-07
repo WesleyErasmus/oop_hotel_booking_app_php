@@ -1,0 +1,49 @@
+/* Gradient StayInn title */
+.stayInn-title {
+    color: #30b8e6;
+    background-image: -webkit-linear-gradient(0deg, #30b8e6 0%, #b54abd 61%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Gradient login btn */
+.login-btn {
+    padding: 0.5rem;
+    width: 100%;
+    border: none !important;
+    color: #fff !important;
+    background-color: #30b8e6;
+    background-image: -webkit-linear-gradient(0deg, #62d4fa -10%, #b54abd 61%);
+}
+
+/* Nav btn styling */
+.create-account-container a {
+    font-size: 15px;
+    color: #62d4fa;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.create-account-container a:hover {
+    color: #b54abd;
+}
+
+nav a {
+    font-size: 15px;
+    color: #b54abd;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+nav a:hover {
+    color: #62d4fa;
+}
+
+.nav-divider {
+    font-size: 20px;
+    color: rgba(84, 84, 84, 0.48);
+    margin: 0 4px;
+}

@@ -1,0 +1,47 @@
+.hotel-view-card {
+    width: 51vw;
+}
+
+.calc-cost-form {
+    padding: 1rem 0!important;
+}
+
+input[type=date] {
+    padding: 1rem 1rem !important;
+    background-color: transparent;
+    border: none !important;
+}
+
+/* calc-title = Total cost calculator pre-appended title */
+label {
+    padding-left: 1.75rem !important;
+    background-color: transparent !important;
+}
+
+.calc-title {
+    color: #30b8e6;
+    background-image: -webkit-linear-gradient(0deg, #30b8e6 0%, #b54abd 61%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.cost-auto-display {
+    border-bottom: 0.1px solid rgb(228, 227, 227);
+    height: 75px;
+}
+
+.cost-auto-display h5 {
+    color: #30b8e6;
+}
+
+/* Modal - Compare hotel styling */
+.modal-header {
+    flex-direction: column;
+}
+
+.top-selected-hotel {
+border: 1px solid #30b8e6 !important;
+
+}
