@@ -14,7 +14,10 @@ include '../includes/header.php';
 // Include hotel class
 include '../classes/hotelclass.php';
 ?>
-<?php include "../components/hero.html"; ?>
+
+<?php 
+// Hotel hero carousel
+include "../components/hero.html"; ?>
 
 <div class="album py-5 bg-light">
     <div class="container">

@@ -1,0 +1,7 @@
+@import url(../css/login.css);
+
+.sign-up-form {
+    max-width: 650px;
+    display: block;
+    margin: 0 auto !important;
+}
