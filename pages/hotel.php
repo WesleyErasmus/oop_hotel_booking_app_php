@@ -8,11 +8,12 @@ require_once "../data/DatabaseConnector.php";
 $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
 
+$sql = 'SELECT * FROM hotel';
+$result = mysqli_query($conn, $sql);
+$hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 // Include app header
 include '../includes/header.php';
-
-// Include hotel class
-include '../classes/hotelclass.php';
 ?>
 
 <?php 
@@ -24,8 +25,6 @@ include "../components/hero.html"; ?>
 
     <!-- Hotel Page Components -->
         <?php 
-        // include '../components/featuredHotels.html'; 
-        // session_destroy();
         print_r($_SESSION);
         ?>
 

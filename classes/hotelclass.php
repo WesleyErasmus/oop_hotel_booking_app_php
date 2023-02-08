@@ -1,9 +1,4 @@
 <?php
-// Fetch all data from hotel table
-$sql = 'SELECT * FROM hotel';
-$result = mysqli_query($conn, $sql);
-$hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 // Hotel class
 class Hotel
 {
