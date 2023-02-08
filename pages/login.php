@@ -66,7 +66,15 @@ require_once '../classes/userclass.php';
 
 // Invokes login function if the login form is filled in and submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty($_POST["password"])) {
-    $result = User::login();
+
+    // Capturing user data from sign-in form and assigning to variables
+    // Also sanitizing data using htmlentities()
+    $username = $_POST["username"];
+    $username = htmlentities($username);
+    $password = $_POST["password"];
+
+    $result = User::login($username, $password);
+    // If login function runs successfully then redirects user to the hotels page
     if ($result) {
         header("Location: ../pages/hotel.php");
         exit;

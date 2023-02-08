@@ -23,12 +23,8 @@ class User
         $this->address = $address;
     }
 
-    public static function login()
+    public static function login($username, $password)
     {
-        if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-
             require_once "../data/DatabaseConnector.php";
             $conn = new DatabaseConnector();
             $conn = $conn->getConnection();
@@ -40,16 +36,27 @@ class User
             // Executing the prepared statement
             $stmt->execute();
             $result = $stmt->get_result();
+
             // Retrieving hashed password, as password was hashed in the user sing-up
             $hashed_password = $result->fetch_assoc()['password'];
 
+            // Check inputted username and password with the database
+            // password_verify checks that the verifies the password encryption on the database with the password that the user has entered
             if (password_verify($password, $hashed_password)) {
                 $stmt = $conn->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
+                
+                // Binding the parameter variables to the correct data type
                 $stmt->bind_param("ss", $username, $hashed_password);
+                // Executes the prepare statement
+                
                 $stmt->execute();
+                // Retrieves the results set from a prepared statement and assigns it to the $result variable
+                
                 $result = $stmt->get_result();
+                //  Retrieves the rows of the result and Iterates over the rows returned by the query
                 $user = $result->fetch_assoc();
 
+                // Creating user session storage
                 if (!empty($user)) {
                     $_SESSION["user"] = $user;
                     $_SESSION['logged_in'] = true;
@@ -61,13 +68,14 @@ class User
                     // Better to use return over echo
                 }
             }
-        }
         return false;
+        // 🚨🚨🚨 MUST CHANGE ECHO TO RETURN 🚨🚨🚨
         echo "login failed";
     }
 
     public static function logout()
     {
+        // Ends the user session, logging the customer out
         unset($_SESSION['logged_in']);
         echo "<meta http-equiv='refresh' content='0;url=../pages/login.php'>";
 
@@ -83,18 +91,24 @@ class User
         // Hashing password using Bcrypt. An interesting read on user credential storage and why I chose not to use MD5: (https://infosecscout.com/best-algorithm-password-storage/)
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
+        // Insert new customer details into the database
         $query = "INSERT INTO user (username, fullname, password, email, address) 
               VALUES ('$username', '$fullname', '$hashed_password', '$email', '$address')";
+
         $result = mysqli_query($conn, $query);
 
         // If the user table insert is successful, then insert the customerid and phonenumber into the customer table
         if ($result) {
+            // Above if statement checks if result of the user INSERT query
             $userid = mysqli_insert_id($conn);
+
             $query = "INSERT INTO customer (customerid, phonenumber) 
                   VALUES ('$userid', '$phonenumber')";
+
             $result = mysqli_query($conn, $query);
 
             if ($result) {
+                // Above if statement checks the result of the customer INSERT query
                 return true;
             } else {
                 return false;
@@ -103,8 +117,10 @@ class User
             return false;
         }
     }
+
 }
 
+// Customer class extending from User class
 class Customer extends User
 {
     protected $customerid;
@@ -117,7 +133,7 @@ class Customer extends User
         $this->phonenumber = $phonenumber;
     }
 }
-
+// Staff class extending from User class
 class Staff extends User
 {
     protected $staffid;
