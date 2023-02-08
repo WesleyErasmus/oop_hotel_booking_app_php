@@ -75,6 +75,8 @@ class User
     {
         // Ends the user session, logging the customer out
         unset($_SESSION['logged_in']);
+        // Destroy all session data
+        session_destroy();
         echo "<meta http-equiv='refresh' content='0;url=../pages/login.php'>";
 
         exit;
