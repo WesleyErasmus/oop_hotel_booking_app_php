@@ -32,14 +32,13 @@ $conn = $conn->getConnection();
                             <div class="mb-2">Type:
                                 <b><?php echo $hotel['type']; ?></b>
                             </div>
-                            <span>Rating:
-                                <b><?php echo $hotel['rating']; ?>
-                                </b></span>
-                            <i class="bi bi-star-fill" style="color: gold;"></i>
-                            <i class="bi bi-star-fill" style="color: gold;"></i>
-                            <i class="bi bi-star-fill" style="color: gold;"></i>
-                            <i class="bi bi-star-fill" style="color: gold;"></i>
-                            <i class="bi bi-star-fill" style="color: gold;"></i>
+
+                            <!-- Hotel star for loop iterating iterating as many times as the hotel rating value -->
+                            <?php
+                                for ($i = 0; $i < $hotel['rating']; $i++) {
+                                    echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
+                                }; ?>
+
                         </div>
                     </div>
                     <div class="card-text">

@@ -27,7 +27,13 @@ class Hotel
 
     public function compareHotels(Hotel $hotel1, Hotel $hotel2)
     {
-        return $hotel1->pricepernight < $hotel2->pricepernight;
+        if($hotel1['pricepernight'] < $hotel2['pricepernight']) {
+            $cheaperBadge = '<span class="badge text-bg-success">Cheaper</span>';
+            return $cheaperBadge;
+        } else {
+            return null;
+        }
+        
     }
 
     public static function getRelatedHotels()

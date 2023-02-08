@@ -27,20 +27,17 @@
                            <div class="col-md-8">
                                <div class="card-body mb-0 pb-0">
                                    <h5 class="card-title mb-2"><b><?php echo $hotel['name']; ?></b></h5>
+                                   <!-- Hotel star for loop iterating iterating as many times as the hotel rating value -->
+                                   <?php
+                                    for ($i = 0; $i < $hotel['rating']; $i++) {
+                                        echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
+                                    }; ?>
                                    <div>
                                        <div class="card-text mb-2">
                                            <small>
                                                <span class="mb-2">Type:
                                                    <b><?php echo $hotel['type']; ?></b>
                                                </span>
-                                               <span>Rating:
-                                                   <b><?php echo $hotel['rating']; ?>
-                                                   </b></span>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
                                        </div>
                                    </div>
                                    <div class="card-text">
@@ -82,19 +79,18 @@
                                <div class="col-md-8">
                                    <div class="card-body">
                                        <h5 class="card-title"><b><?php echo $data['name']; ?></b></h5>
+                                       <span>
+                                           <!-- Hotel star for loop iterating iterating as many times as the hotel rating value -->
+                                           <b><?php
+                                                for ($i = 0; $i < $data['rating']; $i++) {
+                                                    echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
+                                                }; ?>
+                                           </b></span>
                                        <span class="badge text-bg-success">Cheaper</span>
                                        <small>
                                            <div class="card-text">
                                                <span>Type:
                                                    <b><?php echo $data['type']; ?></b></span>
-                                               <span>Rating:
-                                                   <b><?php echo $data['rating']; ?>
-                                                   </b></span>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
-                                               <i class="bi bi-star-fill" style="color: gold;"></i>
                                            </div>
                                        </small>
                                        <div class="card-text">
