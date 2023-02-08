@@ -19,13 +19,12 @@
                     <span>Type:
                       <b><?php echo $data['type']; ?></b></span>
                     <span>Rating:
-                      <b><?php echo $data['rating']; ?>
+                      <b><?php 
+                      for($i = 0; $i < $data['rating']; $i++) {
+                        echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
+                      };?>
                       </b></span>
-                    <i class="bi bi-star-fill" style="color: gold;"></i>
-                    <i class="bi bi-star-fill" style="color: gold;"></i>
-                    <i class="bi bi-star-fill" style="color: gold;"></i>
-                    <i class="bi bi-star-fill" style="color: gold;"></i>
-                    <i class="bi bi-star-fill" style="color: gold;"></i>
+                    <!-- <i class="bi bi-star-fill" style="color: gold;"></i> -->
                   </div>
                 </small>
                 <div class="card-text">
