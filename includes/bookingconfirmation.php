@@ -76,7 +76,7 @@ function createDownloadableTextFile()
     // Creating downloadable text file
     $fileName = "Invoice_" . $bookingno . ".txt";
     $fileContent = "Booking Information:" . "\n";
-    $fileContent .= "User name: " . $user['fullname'] . "\n";
+    $fileContent .= "Customer Name: " . $user['fullname'] . "\n";
     $fileContent .= "Invoice: " . $bookingno . "\n";
     $fileContent .= "Hotel Name: " . $hotel['name'] . "\n";
     $fileContent .= "Check-in Date: " . $checkindate->format('Y-m-d') . "\n";

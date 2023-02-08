@@ -20,7 +20,12 @@ include '../classes/hotelclass.php';
     <div class="container">
 
     <!-- Hotel Page Components -->
-        <?php include '../components/featuredHotels.html'; ?>
+        <?php 
+        // include '../components/featuredHotels.html'; 
+        // session_destroy();
+        print_r($_SESSION);
+        ?>
+
         <?php include '../components/hotelLayout.php'; ?>
     <!--  -->
 
