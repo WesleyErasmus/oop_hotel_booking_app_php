@@ -64,13 +64,11 @@ class User
                     echo "<meta http-equiv='refresh' content='0;url=../pages/hotel.php'>";
                     exit;
 
-                    echo "Login successful";
-                    // Better to use return over echo
+                return true;
+
                 }
             }
         return false;
-        // 🚨🚨🚨 MUST CHANGE ECHO TO RETURN 🚨🚨🚨
-        echo "login failed";
     }
 
     public static function logout()

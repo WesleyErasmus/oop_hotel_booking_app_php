@@ -23,23 +23,28 @@ include '../includes/header.php'; ?>
             </nav>
         </div>
 
-
         <!-- Login form -->
         <div class="col-md-10 mx-auto col-lg-5">
-            <form action="" class="p-4 p-md-5 rounded-3 bg-light" method="post">
-                
-            <div class="form-floating mb-3">
+            <form action="" class="p-4 p-md-5 rounded-3 bg-light needs-validation" method="post" novalidate>
+
+                <div class="form-floating mb-3">
                     <!-- Username input -->
-                    <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Enter your username" required>
-                    <label for="floatingInput">Username</label>
+                    <input type="text" name="username" class="form-control" id="validationCustom01" placeholder="Enter your username" required>
+                    <label for="validationCustom01">Username</label>
+                    <div class="invalid-feedback">
+                        Please enter a valid username.
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
                     <!-- Password input -->
-                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Enter your password" required>
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" name="password" class="form-control" id="validationCustom02" placeholder="Enter your password" required>
+                    <label for="validationCustom02">Password</label>
+                    <div class="invalid-feedback">
+                        Please enter a valid password.
+                    </div>
                 </div>
-            
+
                 <!-- Remember me checkbox -->
                 <div class="checkbox mb-3">
                     <label>
@@ -57,9 +62,9 @@ include '../includes/header.php'; ?>
                 </small>
             </form>
         </div>
-
     </div>
 </div>
+
 <?php
 // Include user class
 require_once '../classes/userclass.php';
@@ -81,5 +86,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty
     }
 }
 ?>
+<script>
+    // Bootstrap form validation script
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
 <!-- Bootstrap js CDN link -->
 <?php include '../includes/footer.php'; ?>
