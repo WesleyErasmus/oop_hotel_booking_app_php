@@ -1,21 +1,23 @@
 <?php
+// Session data
 $checkindate = $_SESSION['checkindate'];
 $checkoutdate = $_SESSION['checkoutdate'];
 $totalCost = $_SESSION['totalcost'];
-// Retrieve hotel data from session variable
 $hotel = $_SESSION['hotel'];
+
 
 function completeBooking()
 {
+    // Setting variables
     $user = $_SESSION['user'];
     $checkindate = $_SESSION['checkindate'];
     $checkoutdate = $_SESSION['checkoutdate'];
     $totalCost = $_SESSION['totalcost'];
-    // Retrieve hotel data from session variable
     $hotel = $_SESSION['hotel'];
     $cancelled = 0;
     $completed = 1;
 
+    // Db connect
     $conn = new DatabaseConnector();
     $conn = $conn->getConnection();
     $bookingno = uniqid();
@@ -24,35 +26,30 @@ function completeBooking()
     $checkindate = $checkindate->format('Y-m-d');
     $checkoutdate = $checkoutdate->format('Y-m-d');
 
+    // Insert into booking table query 
     $sql = "INSERT INTO booking (bookingno, customerid, hotelid, checkindate, checkoutdate, totalcost, cancelled, completed)
         VALUES ('$bookingno', '$customerid', '$hotelid', '$checkindate', 
         '$checkoutdate', '$totalCost', '$cancelled', '$completed')";
     $result = $conn->query($sql);
 
+    // Storing the booking into session storage
     $_SESSION['booking']['bookingno'] = $bookingno;
     
     return $result;
 }
 
+// Invoking completeBooking() function
 if (isset($_POST['complete_booking'])) {
     completeBooking();
-
-    // Takes you to successful booking page 
     header("location: ../pages/bookingsuccessful.php");
 
     // ****** ADD BOOKING FAILED CONDITION THAT UNSETS SESSION ANT TAKES BACK TO HOTELS PAGE
 }
 
+// Invoking clearBookingSessionData() function
 if (isset($_POST['cancel_booking'])) {
-    require_once "../data/DatabaseConnector.php";
-    $conn = new DatabaseConnector();
-    $conn = $conn->getConnection();
-
-    require_once '../classes/bookingclass.php';
-    // Calling clearbookingsessiondata method
-    $booking = new Booking($bookingno, $customerid, $hotelid, $checkindate, $checkoutdate, $totalcost, $cancelled, $completed);
-    $booking->clearBookingSessionData();
-
+    require_once '../classes/bookingclass.php'; 
+    $clearBookingSessionData = Booking::clearBookingSessionData();
     header("location: hotel.php");
 
 };

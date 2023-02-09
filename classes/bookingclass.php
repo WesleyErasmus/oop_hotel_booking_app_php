@@ -33,12 +33,12 @@ class Booking
         $this->completed = $completed;
     }
     
-    public function clearBookingSessionData()
+    public static function clearBookingSessionData()
     {
-        unset($_SESSION['checkindate']);
-        unset($_SESSION['checkoutdate']);
-        unset($_SESSION['totalcost']);
-        unset($_SESSION['hotel']);
+        $hotel = $_SESSION['hotel'];
+        $bookingno = $_SESSION['booking']['bookingno'];
+        unset($bookingno);
+        unset($hotel);
     }
 
     // Retrieve selected hotel by id
