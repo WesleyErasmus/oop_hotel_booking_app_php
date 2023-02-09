@@ -23,7 +23,7 @@ include '../includes/header.php';
             <div class="d-grid gap-2 col" style="max-width:475px">
                 
             <!-- View Bookings button -->
-                <button class="btn btn-primary"><a style="color: #fff; text-decoration: none;" href="../pages/managebooking.php">View booking</a></button>
+                <button class="btn btn-primary"><a style="color: #fff; text-decoration: none;" href="../pages/bookings.php">View booking</a></button>
              
                 <!-- Download Invoice button -->
                 <button class="btn btn-outline-primary" id="download-button">Download Invoice</button>
@@ -38,7 +38,7 @@ include '../includes/header.php';
 <!-- Event listener to download invoice -->
 <script>
     document.getElementById("download-button").addEventListener("click", function() {
-        window.location.href = "../pages/confirmbookingpage.php?download=true";
+        window.location.href = "../pages/confirm_booking.php?download=true";
     });
 </script>
 <?php

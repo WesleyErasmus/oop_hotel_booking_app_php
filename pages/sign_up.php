@@ -1,5 +1,5 @@
 <style>
-    <?php include '../css/signup.css'; ?>
+    <?php include '../css/sign_up.css'; ?>
 </style>
 <?php
 session_start();
@@ -93,7 +93,7 @@ include '../includes/header.php'; ?>
 
 <?php
 // Include user class
-require_once '../classes/userclass.php';
+require_once '../classes/User.php';
 
 // Invokes signup function if the signup form is filled in and submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty($_POST["fullname"]) && !empty($_POST["password"]) && !empty($_POST["email"]) && !empty($_POST["address"]) && !empty($_POST["phonenumber"])) {

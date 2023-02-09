@@ -65,9 +65,9 @@
                                                                                                             echo '';
                                                                                                         } else {
                                                                                                             echo 'data-bs-toggle="popover"';
-                                                                                                        } ?> data-bs-trigger="focus" data-bs-html="true" data-bs-title="You must be logged in to use this feature" data-bs-content="<a class='btn btn-sm btn-success' href='../pages/login.php'>Login Here</a> <a class='btn btn-sm btn-primary' href='../pages/signup.php'>Sign-up Here</a>">
+                                                                                                        } ?> data-bs-trigger="focus" data-bs-html="true" data-bs-title="You must be logged in to use this feature" data-bs-content="<a class='btn btn-sm btn-success' href='../pages/login.php'>Login Here</a> <a class='btn btn-sm btn-primary' href='../pages/sign_up.php'>Sign-up Here</a>">
                                                                <!-- Button disabled conditional. Button is disabled if user is not logged in -->
-                                                               <a href="../pages/booking.php?id=<?php echo $data['id']; ?>" class="btn btn-outline-secondary <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                                                               <a href="../pages/hotel_view.php?id=<?php echo $data['id']; ?>" class="btn btn-outline-secondary <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
                                                                                                                                                                     echo '';
                                                                                                                                                                 } else {
                                                                                                                                                                     echo 'disabled';

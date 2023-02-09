@@ -45,12 +45,12 @@ function completeBooking()
 // Invoking completeBooking() function
 if (isset($_POST['complete_booking'])) {
     completeBooking();
-    header("location: ../pages/bookingsuccessful.php");
+    header("location: ../pages/booking_successful.php");
 }
 
 // Invoking clearBookingSessionData() function
 if (isset($_POST['cancel_booking'])) {
-    require_once '../classes/bookingclass.php'; 
+    require_once '../classes/Booking.php'; 
     $clear_booking_session_data = Booking::clearBookingSessionData();
     header("location: hotel.php");
 

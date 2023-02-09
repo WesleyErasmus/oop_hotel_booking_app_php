@@ -1,4 +1,4 @@
-   <?php include '../classes/hotelclass.php';
+   <?php include '../classes/Hotel.php';
     // Used to display the hotel selected in booking.php page
     $hotel = $_SESSION['hotel'];
     ?>
@@ -85,7 +85,7 @@
                <!-- Modal body -->
                <div class="modal-body">
 
-               <?php include '../components/relatedHotels.php'; ?>
+               <?php include '../components/related_hotels.php'; ?>
 
                    <!-- Close modal button -->
                    <div class="modal-footer">

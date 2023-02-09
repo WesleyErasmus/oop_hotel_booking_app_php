@@ -17,7 +17,7 @@ include '../includes/header.php'; ?>
             <p class="col-lg-10 fs-4">Book the best hotels with StayInn.com.</p>
             <!-- Login / Sign-up nav -->
             <nav class="fw-semibold">
-                <a href=" ../pages/signup.php">Sign-up</a>
+                <a href=" ../pages/sign_up.php">Sign-up</a>
                 <span class="nav-divider"> | </span>
                 <a href="../pages/hotel.php">View Hotels</a>
             </nav>
@@ -58,7 +58,7 @@ include '../includes/header.php'; ?>
 
                 <!-- Create an account container -->
                 <small class="text-muted create-account-container">
-                    <div>Create an account: <a href="../pages/signup.php">Sign-up here</a></div>
+                    <div>Create an account: <a href="../pages/sign_up.php">Sign-up here</a></div>
                 </small>
             </form>
         </div>
@@ -67,7 +67,7 @@ include '../includes/header.php'; ?>
 
 <?php
 // Include user class
-require_once '../classes/userclass.php';
+require_once '../classes/User.php';
 
 // Invokes login function if the login form is filled in and submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty($_POST["password"])) {

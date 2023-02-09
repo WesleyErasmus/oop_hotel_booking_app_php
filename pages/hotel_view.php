@@ -1,12 +1,12 @@
 <style>
-    <?php include '../css/viewBooking.css'; ?>
+    <?php include '../css/hotel_view.css'; ?>
 </style>
 <?php
 session_start();
 // Include app header
 include '../includes/header.php';
 // Include booking class
-include '../classes/bookingclass.php';
+include '../classes/Booking.php';
 // DatabaseConnector
 require_once "../data/DatabaseConnector.php";
 $conn = new DatabaseConnector();
@@ -63,7 +63,7 @@ $conn = $conn->getConnection();
                         <div>
 
                             <!-- Hotel location -->
-                            <div class="mb-2"><i class="bi bi-pin-map"></i>
+                            <div class="mb-2"><i class="bi-pin-map"></i>
                                 <b><?php echo $hotel['location']; ?>
                                 </b>
                             </div>
@@ -125,8 +125,8 @@ $conn = $conn->getConnection();
     <!-- Back btn to Hotels page -->
     <button class="btn btn-secondary"><a href="../pages/hotel.php" style="color: #fff; text-decoration: none;">Back to Hotels</a></button>
 
-    <?php include '../components/compareHotelModal.php'; ?>
-
+    <!-- Compare hotels component -->
+    <?php include '../components/compare_hotel.php'; ?>
 
     <?php
     // check if checkindate and checkoutdate are set
@@ -149,7 +149,7 @@ $conn = $conn->getConnection();
         $_SESSION['booking'] = $booking;
 
         // Couldn't get header location to work, using a html meta url
-        echo "<meta http-equiv='refresh' content='0;url=../pages/confirmBookingPage.php'>";
+        echo "<meta http-equiv='refresh' content='0;url=../pages/confirm_booking.php'>";
     }
     ?>
 

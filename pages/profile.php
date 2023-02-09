@@ -56,7 +56,7 @@ function updateProfile($user_id, $full_name, $email, $address, $conn)
                 <div class="username-container">
 
                     <!-- Display full name -->
-                    <h3 class="lh-1 mb-3">Welcome, <?php echo $full_name ?></h3>
+                    <h3 class="lh-1 mb-3"><?php echo $full_name ?></h3>
 
                     <!-- Display username -->
                     <h5 class="col-lg-10 text-muted">Username: <?php echo $username ?></h5>

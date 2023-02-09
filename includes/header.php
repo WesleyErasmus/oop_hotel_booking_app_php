@@ -39,7 +39,7 @@
 
                     <!-- Booking page link -->
                     <li class="nav-item">
-                        <a class="nav-link text-center" href="../pages/managebooking.php">
+                        <a class="nav-link text-center" href="../pages/bookings.php">
                             Bookings
                         </a>
                     </li>
@@ -62,7 +62,7 @@
                 </button>
                 <?php
                 // User class include
-                require_once '../classes/userclass.php';
+                require_once '../classes/User.php';
 
                 // Login / Logout button conditional
                 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
@@ -78,13 +78,13 @@
                     echo '<button class="btn btn-secondary"><a href="../pages/login.php?logout=true" style="color: #fff; text-decoration: none;">Logout</a></button>';
 
                     // Signup button - display:none;
-                    echo '<button class="btn btn-primary" style="display: none;" type="submit"><a href="../pages/signup.php" style="color: #fff; text-decoration: none;">Sign-up</a></button>';
+                    echo '<button class="btn btn-primary" style="display: none;" type="submit"><a href="../pages/sign_up.php" style="color: #fff; text-decoration: none;">Sign-up</a></button>';
                 } else {
                     // Login button
                     echo '<button class="btn btn-success me-3"><a href="login.php" style="color: #fff; text-decoration: none;">Login</a></button>';
 
                     // Signup button - display:block;
-                    echo '<button class="btn btn-primary" style="display: block;" type="submit"><a href="../pages/signup.php" style="color: #fff; text-decoration: none;">Sign-up</a></button>';
+                    echo '<button class="btn btn-primary" style="display: block;" type="submit"><a href="../pages/sign_up.php" style="color: #fff; text-decoration: none;">Sign-up</a></button>';
                 }
                 ?>
             </div>

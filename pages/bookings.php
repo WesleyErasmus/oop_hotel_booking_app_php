@@ -10,7 +10,7 @@ include '../includes/header.php';
 // Conditional to invoke cancelBooking()
 if (isset($_POST['cancel_booking'])) {
     cancelBooking($_POST['booking_no']);
-    echo "<meta http-equiv='refresh' content='0;url=../pages/managebooking.php'>";
+    echo "<meta http-equiv='refresh' content='0;url=../pages/bookings.php'>";
     exit;
 }
 
@@ -105,7 +105,7 @@ function cancelBooking($booking_no)
         <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Cancelled Bookings</h3>
         
         <!-- Cancelled bookings include -->
-        <?php include '../components/cancelledBookings.php'; ?>
+        <?php include '../components/cancelled_bookings.php'; ?>
 
     </div>
 

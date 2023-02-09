@@ -8,7 +8,7 @@ $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
 
 // include bookingconfirmation php functions
-include '../includes/bookingconfirmation.php';
+include '../includes/confirm_booking.php';
 // Include header
 include '../includes/header.php';
 ?>
