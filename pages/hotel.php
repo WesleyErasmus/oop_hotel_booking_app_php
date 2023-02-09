@@ -16,21 +16,19 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 include '../includes/header.php';
 ?>
 
-<?php 
-// Hotel hero carousel
-include "../components/hero.html"; ?>
+
+<div class="display-2 pt-4 pb-0 text-end bg-light">
+    <div class="container">
+        <span class="display-6 text-muted border-top">Welcome to,</span>
+        <span class="gradient-text">StayInn.com.</span>
+    </div>
+</div>
 
 <div class="album py-5 bg-light">
     <div class="container">
 
-    <!-- Hotel Page Components -->
-        
+        <!-- Hotel Page Components -->
         <?php include '../components/hotelLayout.php'; ?>
-    <!--  -->
+        <!--  -->
 
-<!-- Bootstrap Popover script -->
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
-<?php include '../includes/footer.php' ?>
+        <?php include '../includes/footer.php' ?>

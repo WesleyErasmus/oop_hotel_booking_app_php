@@ -8,16 +8,16 @@ class User
 {
     protected $id;
     protected $username;
-    protected $fullname;
+    protected $full_name;
     protected $password;
     protected $email;
     protected $address;
 
-    public function __construct($id, $username, $fullname, $password, $email, $address)
+    public function __construct($id, $username, $full_name, $password, $email, $address)
     {
         $this->id = $id;
         $this->username = $username;
-        $this->fullname = $fullname;
+        $this->full_name = $full_name;
         $this->password = $password;
         $this->email = $email;
         $this->address = $address;
@@ -82,7 +82,7 @@ class User
         exit;
     }
 
-    public static function signup($username, $fullname, $password, $email, $address, $phonenumber)
+    public static function signup($username, $full_name, $password, $email, $address, $phone_number)
     {
         require_once "../data/DatabaseConnector.php";
         $conn = new DatabaseConnector();
@@ -93,17 +93,17 @@ class User
 
         // Insert new customer details into the database
         $query = "INSERT INTO user (username, fullname, password, email, address) 
-              VALUES ('$username', '$fullname', '$hashed_password', '$email', '$address')";
+              VALUES ('$username', '$full_name', '$hashed_password', '$email', '$address')";
 
         $result = mysqli_query($conn, $query);
 
         // If the user table insert is successful, then insert the customerid and phonenumber into the customer table
         if ($result) {
             // Above if statement checks if result of the user INSERT query
-            $userid = mysqli_insert_id($conn);
+            $user_id = mysqli_insert_id($conn);
 
             $query = "INSERT INTO customer (customerid, phonenumber) 
-                  VALUES ('$userid', '$phonenumber')";
+                  VALUES ('$user_id', '$phone_number')";
 
             $result = mysqli_query($conn, $query);
 
@@ -123,26 +123,26 @@ class User
 // Customer class extending from User class
 class Customer extends User
 {
-    protected $customerid;
-    protected $phonenumber;
+    protected $customer_id;
+    protected $phone_number;
 
-    public function __construct($id, $username, $fullname, $password, $email, $address, $customerid, $phonenumber)
+    public function __construct($id, $username, $full_name, $password, $email, $address, $customer_id, $phone_number)
     {
-        parent::__construct($id, $username, $fullname, $password, $email, $address);
-        $this->customerid = $customerid;
-        $this->phonenumber = $phonenumber;
+        parent::__construct($id, $username, $full_name, $password, $email, $address);
+        $this->customer_id = $customer_id;
+        $this->phone_number = $phone_number;
     }
 }
 // Staff class extending from User class
 class Staff extends User
 {
-    protected $staffid;
+    protected $staff_id;
     protected $role;
 
-    public function __construct($id, $username, $fullname, $password, $email, $address, $staffid, $role)
+    public function __construct($id, $username, $full_name, $password, $email, $address, $staff_id, $role)
     {
-        parent::__construct($id, $username, $fullname, $password, $email, $address);
-        $this->staffid = $staffid;
+        parent::__construct($id, $username, $full_name, $password, $email, $address);
+        $this->staff_id = $staff_id;
         $this->role = $role;
     }
 }

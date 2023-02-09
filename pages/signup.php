@@ -6,16 +6,16 @@ session_start();
 // Include Header
 include '../includes/header.php'; ?>
 
-<!-- Login page container -->
+<!-- Signup page container -->
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
 
-        <!-- Login form -->
+        <!-- Signup form -->
         <div class="col-md-10 mx-auto col-lg-10">
             <div class="text-center text-lg-center login-content">
-                <!-- Login page heading -->
+                <!-- Signup page heading -->
                 <h1 class="display-4 fw-bold lh-1 mb-3 stayInn-title">Welcome to <span class="stayInn-title">StayInn.com</span></h1>
-                <!-- Login / Sign-up nav -->
+                <!-- Signup / Sign-up nav -->
                 <nav class="fw-semibold mb-4">
                     <a href="../pages/hotel.php">View Hotels</a>
                 </nav>
@@ -78,7 +78,7 @@ include '../includes/header.php'; ?>
                     </label>
                 </div>
 
-                <!-- Login form submit btn -->
+                <!-- Signup form submit btn -->
                 <button class="w-100 btn btn-lg login-btn" type="submit">Sign-up</button>
                 <hr class="my-4">
 
@@ -99,26 +99,25 @@ require_once '../classes/userclass.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty($_POST["fullname"]) && !empty($_POST["password"]) && !empty($_POST["email"]) && !empty($_POST["address"]) && !empty($_POST["phonenumber"])) {
 
     // Capturing user data from sign-in form and assigning to variables
-    // Also sanitizing data using htmlentities()
+    // Also sanitizing data using htmlentities() & email filter
     $id = "";
     $username = $_POST["username"];
     $username = htmlentities($username);
-    $fullname = $_POST["fullname"];
-    $fullname = htmlentities($fullname);
+    $full_name = $_POST["fullname"];
+    $full_name = htmlentities($full_name);
     $password = $_POST['password'];
     $email = $_POST['email'];
-    // 🚨🚨🚨 Validate email - fix 🚨🚨🚨
     $sanitized_email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
     $address = $_POST["address"];
     $address = htmlentities($address);
-    $customerid = "";
-    $phonenumber = $_POST["phonenumber"];
-    $phonenumber = htmlentities($phonenumber);
+    $customer_id = "";
+    $phone_number = $_POST["phonenumber"];
+    $phone_number = htmlentities($phone_number);
 
     // Creating a new Customer object then use the data as session data. Also using this object to insert user 'id' property into customer 'customerid' value. I'm using this to make sure that user and customer data match up in the database. 
-    $customer = new Customer($id, $username, $fullname, $password, $sanitized_email, $address, $customerid, $phonenumber);
-    $result = $customer->signup($username, $fullname, $password, $email, $address, $phonenumber);
+    $customer = new Customer($id, $username, $full_name, $password, $sanitized_email, $address, $customer_id, $phone_number);
+    $result = $customer->signup($username, $full_name, $password, $email, $address, $phone_number);
 
     if ($result) {
         echo "<meta http-equiv='refresh' content='0;url=../pages/login.php'>";

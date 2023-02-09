@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
+    <nav class="navbar sticky-top navbar-expand-lg bg-white shadow-sm" data-bs-theme="light">
         <!-- Navbar content -->
         <div class="container"> <!-- p-2 -->
             <a class="navbar-brand" href="../pages/hotel.php">StayInn.com.</a>

@@ -7,15 +7,14 @@ $conn = $conn->getConnection();
 // Include header
 include '../includes/header.php';
 
-// Conditional to run cancelBooking()
+// Conditional to invoke cancelBooking()
 if (isset($_POST['cancel_booking'])) {
     cancelBooking($_POST['booking_no']);
     echo "<meta http-equiv='refresh' content='0;url=../pages/managebooking.php'>";
     exit;
 }
 
-
-// Updates cancelled boolean to true if user cancels booking
+// Updates cancelled boolean set to true if user cancels booking
 function cancelBooking($booking_no)
 {
     $conn = new DatabaseConnector();
@@ -43,11 +42,13 @@ function cancelBooking($booking_no)
         </thead>
 
         <?php
+        // User session storage
         $user_id = $_SESSION['user']['id'];
 
         $sql = "SELECT * FROM booking WHERE customerid = $user_id AND cancelled = 0 AND completed = 1";
         $result = $conn->query($sql);
 
+        // Getting all completed bookings associated with the customerid
         while ($row = $result->fetch_assoc()) {
             $booking_no = $row['bookingno'];
             $hotel_id = $row['hotelid'];
@@ -59,7 +60,7 @@ function cancelBooking($booking_no)
                 <tr>
                     <td><?php echo $booking_no; ?></td>
                     <td>
-
+                        <!-- Retrieving hotel names -->
                         <?php
                         $sql_hotel = "SELECT name FROM hotel WHERE id = $hotel_id";
                         $result_hotel = $conn->query($sql_hotel);

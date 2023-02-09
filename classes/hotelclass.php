@@ -4,7 +4,7 @@ class Hotel
 {
     protected $id;
     protected $name;
-    protected $pricepernight;
+    protected $price_per_night;
     protected $thumbnail;
     protected $features;
     protected $type;
@@ -12,11 +12,11 @@ class Hotel
     protected $rating;
     protected $location;
 
-    public function __construct($id, $name, $pricepernight, $thumbnail, $features, $type, $beds, $rating, $location)
+    public function __construct($id, $name, $price_per_night, $thumbnail, $features, $type, $beds, $rating, $location)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->pricepernight = $pricepernight;
+        $this->price_per_night = $price_per_night;
         $this->thumbnail = $thumbnail;
         $this->features = $features;
         $this->type = $type;
@@ -46,15 +46,15 @@ class Hotel
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            $relatedHotels = $result->fetch_all(MYSQLI_ASSOC);
+            $related_hotels = $result->fetch_all(MYSQLI_ASSOC);
         } else {
-            $relatedHotels = null;
+            $related_hotels = null;
         }
         $conn->close();
 
-        return $relatedHotels;
+        return $related_hotels;
     }
 }
 
-$relatedHotels = Hotel::getRelatedHotels();
-$_SESSION['relatedHotels'] = $relatedHotels;
+$related_hotels = Hotel::getRelatedHotels();
+$_SESSION['relatedHotels'] = $related_hotels;

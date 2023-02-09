@@ -117,21 +117,21 @@ $conn = $conn->getConnection();
     <?php
     // check if checkindate and checkoutdate are set
     if (isset($_POST['checkindate']) && isset($_POST['checkoutdate'])) {
-        $pricepernight = $hotel['pricepernight'];
+        $price_per_night = $hotel['pricepernight'];
 
         // calculate the number of nights
-        $checkindate = new DateTime($_POST['checkindate']);
-        $checkoutdate = new DateTime($_POST['checkoutdate']);
-        $nights = $checkoutdate->diff($checkindate)->format("%a");
+        $check_in_date = new DateTime($_POST['checkindate']);
+        $check_out_date = new DateTime($_POST['checkoutdate']);
+        $nights = $check_out_date->diff($check_in_date)->format("%a");
 
         // calculate the total cost
-        $totalCost = $nights * $pricepernight;
+        $total_cost = $nights * $price_per_night;
 
         // Capturing booking info into session storage
-        $_SESSION['checkindate'] = $checkindate;
-        $_SESSION['checkoutdate'] = $checkoutdate;
+        $_SESSION['checkindate'] = $check_in_date;
+        $_SESSION['checkoutdate'] = $check_out_date;
         $_SESSION['nights'] = $nights;
-        $_SESSION['totalcost'] = $totalCost;
+        $_SESSION['totalcost'] = $total_cost;
         $_SESSION['booking'] = $booking;
 
         // Couldn't get header location to work, using a html meta url
@@ -147,9 +147,9 @@ $conn = $conn->getConnection();
             let checkin = new Date(document.getElementById("checkindate").value);
             let checkout = new Date(document.getElementById("checkoutdate").value);
             let nights = (checkout - checkin) / (1000 * 60 * 60 * 24);
-            let pricepernight = "<?php echo $hotel['pricepernight']; ?>";
-            let totalCost = nights * pricepernight;
-            document.getElementById("totalCost").innerHTML = "Total: R" + totalCost + " for " + nights + " nights";
+            let price_per_night = "<?php echo $hotel['pricepernight']; ?>";
+            let total_cost = nights * price_per_night;
+            document.getElementById("totalCost").innerHTML = "Total: R" + total_cost + " for " + nights + " nights";
         }
     </script>
 

@@ -25,25 +25,25 @@ $result = $conn->query($sql);
 
         while ($row = $result->fetch_assoc()) {
 
-            $bookingno = $row['bookingno'];
-            $hotelid = $row['hotelid'];
-            $checkindate = $row['checkindate'];
-            $checkoutdate = $row['checkoutdate'];
-            $totalcost = $row['totalcost'];
+            $booking_no = $row['bookingno'];
+            $hotel_id = $row['hotelid'];
+            $check_in_date = $row['checkindate'];
+            $check_out_date = $row['checkoutdate'];
+            $total_cost = $row['totalcost'];
         ?>
 
             </td>
-            <td><?php echo $bookingno; ?></td>
+            <td><?php echo $booking_no; ?></td>
             <td><?php
                 $user_id = $_SESSION['user']['id'];
-                $sql_hotel = "SELECT name FROM hotel WHERE id = $hotelid";
+                $sql_hotel = "SELECT name FROM hotel WHERE id = $hotel_id";
                 $result_hotel = $conn->query($sql_hotel);
                 $row_hotel = $result_hotel->fetch_assoc();
                 echo $row_hotel['name'];
                 ?></td>
-            <td><?php echo $checkindate; ?></td>
-            <td><?php echo $checkoutdate; ?></td>
-            <td>R<?php echo $totalcost; ?></td>
+            <td><?php echo $check_in_date; ?></td>
+            <td><?php echo $check_out_date; ?></td>
+            <td>R<?php echo $total_cost; ?></td>
             <td>Booking Cancelled</td>
     </tbody>
 <?php

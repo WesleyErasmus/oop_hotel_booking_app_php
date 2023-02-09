@@ -72,9 +72,9 @@ function updateAddress($user_id, $address, $conn)
     if (isset($_POST['updateFullname'])) {
         $fullname = $_POST['fullname'];
         if (updateFullname($user_id, $fullname, $conn)) {
-            echo "Update successful";
+            return true;
         } else {
-            echo "Update failed. Please try again";
+            return false;
         }
     }
     ?>
@@ -89,9 +89,9 @@ function updateAddress($user_id, $address, $conn)
     if (isset($_POST['updateEmail'])) {
         $email = $_POST['email'];
         if (updateEmail($user_id, $email, $conn)) {
-            echo "Update successful";
+            return true;
         } else {
-            echo "Update failed. Please try again";
+            return false;
         }
     }
     ?>
@@ -106,9 +106,9 @@ function updateAddress($user_id, $address, $conn)
     if (isset($_POST['updateAddress'])) {
         $address = $_POST['address'];
         if (updateAddress($user_id, $address, $conn)) {
-            echo "Update successful";
+            return true;
         } else {
-            echo "Update failed. Please try again";
+            return false;
         }
     }
     ?>

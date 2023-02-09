@@ -14,8 +14,8 @@ $conn = $conn->getConnection();
 
 
 // Update the user's profile information in the database
-$selectUserSQL = "SELECT fullname, username, email, address FROM user WHERE id = '$user_id'";
-$result = $conn->query($selectUserSQL);
+$selectUser = "SELECT fullname, username, email, address FROM user WHERE id = '$user_id'";
+$result = $conn->query($selectUser);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $fullname = $row['fullname'];
@@ -27,8 +27,8 @@ if ($result->num_rows > 0) {
 // Function to update Profile
 function updateProfile($user_id, $fullname, $email, $address, $conn)
 {
-    $updateProfileSQL = "UPDATE user SET fullname = '$fullname', email = '$email', address = '$address' WHERE id = '$user_id'";
-    if ($conn->query($updateProfileSQL) === TRUE) {
+    $updateProfile = "UPDATE user SET fullname = '$fullname', email = '$email', address = '$address' WHERE id = '$user_id'";
+    if ($conn->query($updateProfile) === TRUE) {
         return true;
     } else {
         return false;

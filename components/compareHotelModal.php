@@ -70,7 +70,7 @@
                </div>
                <div class="modal-body">
                    <div class="card mb-3 rounded-0">
-                       <?php foreach ($relatedHotels as $data) : ?>
+                       <?php foreach ($related_hotels as $data) : ?>
                            <div class="row g-0">
                                <div class="col-md-4">
                                    <img src="<?php echo $data['thumbnail']; ?>" class="img-fluid start" alt="Hotel Thumbnail" />
@@ -81,7 +81,7 @@
 
                                     // Comparing hotel price per night check
                                        if($data['pricepernight'] < $hotel['pricepernight']) {
-                                        echo $compareHotelPricing = Hotel::compareHotelPricing();
+                                        echo $compare_hotel_pricing = Hotel::compareHotelPricing();
                                        }   
                                         ?>
                                        <span>

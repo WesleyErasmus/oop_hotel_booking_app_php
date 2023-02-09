@@ -11,24 +11,24 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // Booking class
 class Booking
 {
-    public $bookingno;
-    public $customerid;
-    public $hotelid;
-    public $checkindate;
-    public $checkoutdate;
-    public $totalcost;
+    public $booking_no;
+    public $customer_id;
+    public $hotel_id;
+    public $check_in_date;
+    public $check_out_date;
+    public $total_cost;
     public $cancelled;
     public $completed;
 
     // Constructor function
-    public function __construct($bookingno, $customerid, $hotelid, $checkindate, $checkoutdate, $totalcost, $cancelled, $completed)
+    public function __construct($booking_no, $customer_id, $hotel_id, $check_in_date, $check_out_date, $total_cost, $cancelled, $completed)
     {
-        $this->bookingno = $bookingno;
-        $this->customerid = $customerid;
-        $this->hotelid = $hotelid;
-        $this->checkindate = $checkindate;
-        $this->checkoutdate = $checkoutdate;
-        $this->totalcost = $totalcost;
+        $this->booking_no = $booking_no;
+        $this->customer_id = $customer_id;
+        $this->hotel_id = $hotel_id;
+        $this->check_in_date = $check_in_date;
+        $this->check_out_date = $check_out_date;
+        $this->total_cost = $total_cost;
         $this->cancelled = $cancelled;
         $this->completed = $completed;
     }
@@ -36,8 +36,8 @@ class Booking
     public static function clearBookingSessionData()
     {
         $hotel = $_SESSION['hotel'];
-        $bookingno = $_SESSION['booking']['bookingno'];
-        unset($bookingno);
+        $booking_no = $_SESSION['booking']['bookingno'];
+        unset($booking_no);
         unset($hotel);
     }
 
