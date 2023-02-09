@@ -24,10 +24,7 @@ include "../components/hero.html"; ?>
     <div class="container">
 
     <!-- Hotel Page Components -->
-        <?php 
-        print_r($_SESSION);
-        ?>
-
+        
         <?php include '../components/hotelLayout.php'; ?>
     <!--  -->
 

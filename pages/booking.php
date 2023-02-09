@@ -74,7 +74,7 @@ $conn = $conn->getConnection();
         </div>
 
         <!-- Auto display total cost -->
-        <div class="lead cost-auto-display text-muted mb-4 pt-2 float-start">
+        <div class="lead cost-auto-display text-muted mb-4 pt-2 float-start gradient-text">
             The price will display here:
             <h5 class="mt-2">
                 <span id="totalCost"></span>
