@@ -87,9 +87,8 @@ if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['address
     $email = $_POST['email'];
     $address = $_POST['address'];
     if (updateProfile($user_id, $fullname, $email, $address, $conn)) {
-        return true;
-    } else {
-        return false;
+        echo "<meta http-equiv='refresh' content='0;url=../pages/profile.php'>";
+        exit;
     }
 }
 ?>

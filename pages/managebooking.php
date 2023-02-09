@@ -10,9 +10,10 @@ include '../includes/header.php';
 // Conditional to run cancelBooking()
 if (isset($_POST['cancel_booking'])) {
     cancelBooking($_POST['booking_no']);
-    header("Location: managebooking.php");
+    echo "<meta http-equiv='refresh' content='0;url=../pages/managebooking.php'>";
     exit;
 }
+
 
 // Updates cancelled boolean to true if user cancels booking
 function cancelBooking($booking_no)
@@ -27,6 +28,7 @@ function cancelBooking($booking_no)
 ?>
 
 <div class="container">
+    <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Your Bookings</h3>
     <!-- Bookings table -->
     <table class='table table-bordered'>
         <tr>
@@ -35,13 +37,11 @@ function cancelBooking($booking_no)
             <th>Check-in Date</th>
             <th>Check-out Date</th>
             <th>Total Cost</th>
-            <th>Action</th>
+            <th>Cancel</th>
         </tr>
 
         <?php
         $user_id = $_SESSION['user']['id'];
-        // $conn = new DatabaseConnector();
-        // $conn = $conn->getConnection();
 
         $sql = "SELECT * FROM booking WHERE customerid = $user_id AND cancelled = 0 AND completed = 1";
         $result = $conn->query($sql);
@@ -78,10 +78,16 @@ function cancelBooking($booking_no)
                 </td>
             </tr>
         <?php
-        // Closing while loop
+            // Closing while loop
         }
         ?>
     </table>
 
-    <?php include '../includes/cancelledBookings.php'; ?>
+    <div>
+        <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Cancelled Bookings</h3>
+        <!-- Cancelled bookings -->
+        <?php include '../includes/cancelledBookings.php'; ?>
+
+    </div>
+
 </div>
