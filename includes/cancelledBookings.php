@@ -5,7 +5,7 @@ $sql = "SELECT * FROM booking WHERE cancelled = 1 AND customerid = $user_id";
 $result = $conn->query($sql);
 
 ?>
-<table class='table table-bordered'>
+<table class='table table-bordered bg-light table-striped table-hover'>
     <thead>
         <tr>
             <th>Booking No.</th>

@@ -46,7 +46,7 @@ $conn = $conn->getConnection();
                             <span><i class="bi bi-shop"></i> Beds:
                                 <b><?php echo $hotel['beds']; ?>
                                 </b></span>
-                            <span><i class="bi bi-suit-heart"></i> <span class="badge text-bg-primary">Features:</span>
+                            <span><i class="bi-suit-heart"></i> <span class="badge text-bg-primary">Features:</span>
                                 <b><?php echo $hotel['features']; ?>
                                 </b></span>
                         </div>
