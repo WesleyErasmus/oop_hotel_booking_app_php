@@ -67,7 +67,6 @@
                        </div> <!-- End of hotel display by id function -->
                    </div>
 
-
                </div>
                <div class="modal-body">
                    <div class="card mb-3 rounded-0">

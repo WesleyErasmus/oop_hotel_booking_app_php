@@ -35,9 +35,9 @@ $conn = $conn->getConnection();
 
                             <!-- Hotel star for loop iterating iterating as many times as the hotel rating value -->
                             <?php
-                                for ($i = 0; $i < $hotel['rating']; $i++) {
-                                    echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
-                                }; ?>
+                            for ($i = 0; $i < $hotel['rating']; $i++) {
+                                echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
+                            }; ?>
 
                         </div>
                     </div>
@@ -70,29 +70,26 @@ $conn = $conn->getConnection();
     <!-- Total cost form -->
     <form class="calc-cost-form rounded-5 pt-0" method="post" action="" style="padding: 2rem;">
         <div>
-            <span class="h4 calc-title">Calculate the price of your trip</span>
+            <span class="h4 gradient-text">Calculate the price of your trip</span>
         </div>
 
         <!-- Auto display total cost -->
-        <div class="h5 cost-auto-display text-muted mb-4 pt-2 float-start">
+        <div class="lead cost-auto-display text-muted mb-4 pt-2 float-start">
             The price will display here:
             <h5 class="mt-2">
                 <span id="totalCost"></span>
             </h5>
         </div>
 
-        <div></div>
-
-
         <div class="input-group">
-
             <!-- Check-in -->
-            <label class="form-control rounded-start-pill text-muted" for="checkindate"><b>Check-In:</b>
-                <input type="date" id="checkindate" name="checkindate" required></label>
+            <label class="form-control rounded-start-pill text-muted" for="checkindate"><b><span class="gradient-text">Select a Check-In Date: </span></b>
+                <input type="date" id="checkindate" name="checkindate" class="lead text-muted" required>
+            </label>
 
             <!-- Check-out -->
-            <label class="form-control text-muted" for="checkoutdate"><b>Check-Out:</b>
-                <input type="date" id="checkoutdate" name="checkoutdate" required></label>
+            <label class="form-control text-muted" for="checkoutdate"><b><span class="gradient-text">Select a Check-Out Date: </span></b>
+                <input type="date" id="checkoutdate" name="checkoutdate" class="lead text-muted" required></label>
 
             <!-- Submit button -->
             <input type="submit" value="Make Booking" class="btn btn-primary rounded-end-pill">

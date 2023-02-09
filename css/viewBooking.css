@@ -12,13 +12,32 @@ input[type=date] {
     border: none !important;
 }
 
+.form-control input {
+    border: none;
+    outline: 0;
+}
+
+/* Date input calendar icon styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
 /* calc-title = Total cost calculator pre-appended title */
 label {
     padding-left: 1.75rem !important;
     background-color: transparent !important;
 }
 
-.calc-title {
+.gradient-text {
     color: #30b8e6;
     background-image: -webkit-linear-gradient(0deg, #30b8e6 0%, #b54abd 61%);
     background-clip: text;
@@ -28,12 +47,8 @@ label {
 }
 
 .cost-auto-display {
-    border-bottom: 0.1px solid rgb(228, 227, 227);
+    border-bottom: 0.1px dotted rgb(228, 227, 227);
     height: 75px;
-}
-
-.cost-auto-display h5 {
-    color: #30b8e6;
 }
 
 /* Modal - Compare hotel styling */
