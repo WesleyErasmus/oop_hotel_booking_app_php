@@ -1,15 +1,19 @@
+/* Contains profile headings */
 .profile-details-container {
     width: 100% !important;
 }
 
+/* Profile update form styling */
 .form-container {
     max-width: 575px !important;
 }
 
+/* Contains username and full name */
 .user-details-display {
     display: flex;
 }
 
+/* Sub-container for username and full name */
 .username-container {
     padding: 2rem 1rem;
 }

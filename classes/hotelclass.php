@@ -25,6 +25,7 @@ class Hotel
         $this->location = $location;
     }
 
+    // Function is invoked if a related hotel is cheaper than the selected hotel
     public static function compareHotelPricing()
     {
         
@@ -32,6 +33,7 @@ class Hotel
 
     }
 
+    // Displays related hotels based on the hotel type (e.g. suite, business, residential)
     public static function getRelatedHotels()
     {
         // Connect to database
@@ -39,9 +41,11 @@ class Hotel
         $conn = new DatabaseConnector();
         $conn = $conn->getConnection();
 
+        // Storing session storage in variables
         $hotel = $_SESSION['hotel'];
         $type = $hotel['type'];
 
+        // Querying hotel tables where the hotel type is the same as the selected hotel in the hotel view page
         $sql = "SELECT * FROM hotel WHERE type = '$type'";
         $result = $conn->query($sql);
 
@@ -55,6 +59,6 @@ class Hotel
         return $related_hotels;
     }
 }
-
+// Invoking gerRelatedHotels 
 $related_hotels = Hotel::getRelatedHotels();
 $_SESSION['relatedHotels'] = $related_hotels;

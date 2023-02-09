@@ -1,5 +1,8 @@
 @import url(../css/login.css);
+/* Above import styling from login.css - used similar styling for login and sign-up pages */
 
+
+/* Sign-up form sizing and placements */
 .sign-up-form {
     max-width: 650px;
     display: block;

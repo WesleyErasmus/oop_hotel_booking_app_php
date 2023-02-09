@@ -30,6 +30,8 @@ function cancelBooking($booking_no)
     <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Your Bookings</h3>
     <!-- Bookings table -->
     <table class='table table-bordered bg-light table-striped table-hover'>
+
+        <!-- Table headings -->
         <thead>
             <tr>
                 <th>Booking No.</th>
@@ -45,6 +47,7 @@ function cancelBooking($booking_no)
         // User session storage
         $user_id = $_SESSION['user']['id'];
 
+        // Fetch all the completed bookings from the database
         $sql = "SELECT * FROM booking WHERE customerid = $user_id AND cancelled = 0 AND completed = 1";
         $result = $conn->query($sql);
 
@@ -56,8 +59,11 @@ function cancelBooking($booking_no)
             $check_out_date = $row['checkoutdate'];
             $total_cost = $row['totalcost'];
         ?>
+            <!-- Table body -->
             <tbody>
                 <tr>
+
+                    <!-- Booking number -->
                     <td><?php echo $booking_no; ?></td>
                     <td>
                         <!-- Retrieving hotel names -->
@@ -69,11 +75,17 @@ function cancelBooking($booking_no)
                         ?>
 
                     </td>
+                    <!-- Check-in date -->
                     <td><?php echo $check_in_date; ?></td>
+
+                    <!-- Check-out date -->
                     <td><?php echo $check_out_date; ?></td>
+
+                    <!-- Total cost -->
                     <td>R<?php echo $total_cost; ?></td>
                     <td>
 
+                    <!-- Form with hidden input with the value of the booking no used to delete a booking based on it's id -->
                         <form action="" method="post">
                             <input type="hidden" name="booking_no" value="<?php echo $booking_no; ?>">
                             <input class="btn btn-danger" type="submit" name="cancel_booking" value="Cancel Booking">
@@ -88,10 +100,12 @@ function cancelBooking($booking_no)
             </tbody>
     </table>
 
+    <!-- Cancelled bookings container -->
     <div>
         <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Cancelled Bookings</h3>
-        <!-- Cancelled bookings -->
-        <?php include '../includes/cancelledBookings.php'; ?>
+        
+        <!-- Cancelled bookings include -->
+        <?php include '../components/cancelledBookings.php'; ?>
 
     </div>
 

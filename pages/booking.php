@@ -21,14 +21,20 @@ $conn = $conn->getConnection();
     <div class="card mb-3 rounded-0 hotel-view-card">
         <div class="row g-0">
             <div class="col-md-4">
+
+                <!-- Hotel thumbnail -->
                 <img src="<?php echo $hotel['thumbnail']; ?>" class="img-fluid start" alt="Hotel Thumbnail" />
             </div>
             <div class="col-md-8">
                 <div class="card-body mb-0 pb-0">
+
+                    <!-- Hotel name -->
                     <h3 class="card-title mb-2"><b><?php echo $hotel['name']; ?></b></h3>
 
                     <div>
                         <div class="card-text mb-2">
+
+                            <!-- Hotel type -->
                             <div class="mb-2">Type:
                                 <b><?php echo $hotel['type']; ?></b>
                             </div>
@@ -43,19 +49,27 @@ $conn = $conn->getConnection();
                     </div>
                     <div class="card-text">
                         <div class="mb-2">
+
+                            <!-- Hotel beds -->
                             <span><i class="bi bi-shop"></i> Beds:
                                 <b><?php echo $hotel['beds']; ?>
                                 </b></span>
+
+                            <!-- Hotel features -->
                             <span><i class="bi-suit-heart"></i> <span class="badge text-bg-primary">Features:</span>
                                 <b><?php echo $hotel['features']; ?>
                                 </b></span>
                         </div>
                         <div>
+
+                            <!-- Hotel location -->
                             <div class="mb-2"><i class="bi bi-pin-map"></i>
                                 <b><?php echo $hotel['location']; ?>
                                 </b>
                             </div>
                             <div>
+
+                                <!-- Hotel price per night -->
                                 <span><i class="bi bi-credit-card"></i>
                                     <b>R<?php echo $hotel['pricepernight']; ?>
                                     </b> /per night</d>
@@ -144,11 +158,18 @@ $conn = $conn->getConnection();
         document.getElementById("checkoutdate").addEventListener("change", calculateTotalCost);
 
         function calculateTotalCost() {
+            // Declare variables
             let checkin = new Date(document.getElementById("checkindate").value);
             let checkout = new Date(document.getElementById("checkoutdate").value);
+
+            // Calculates diff between checkin & checkout dates
             let nights = (checkout - checkin) / (1000 * 60 * 60 * 24);
+
+            // Stores $hotel pricepernight in a variable
             let price_per_night = "<?php echo $hotel['pricepernight']; ?>";
             let total_cost = nights * price_per_night;
+
+            // Displays the total cost in the dom in a span with the id of totalCost
             document.getElementById("totalCost").innerHTML = "Total: R" + total_cost + " for " + nights + " nights";
         }
     </script>

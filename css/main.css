@@ -1,5 +1,4 @@
-@import '../css/base.css';
-
+/* Global CSS styling */
 *,
 *::before,
 *::after {
@@ -15,4 +14,9 @@
     text-rendering: optimizeLegibility;
 }
 
-:root {}
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}

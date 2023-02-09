@@ -6,6 +6,7 @@ $total_cost = $_SESSION['totalcost'];
 $hotel = $_SESSION['hotel'];
 
 
+// Complete booking function - stores booking to the 'booking' database table
 function completeBooking()
 {
     // Setting variables
@@ -38,12 +39,13 @@ function completeBooking()
     return $result;
 }
 
+// ************************************************************
+// BELOW FUNCTIONS ARE LINKED TO BUTTONS NEXT TO EACH OTHER ON confirmBookingPage.php
+
 // Invoking completeBooking() function
 if (isset($_POST['complete_booking'])) {
     completeBooking();
     header("location: ../pages/bookingsuccessful.php");
-
-    // ****** ADD BOOKING FAILED CONDITION THAT UNSETS SESSION ANT TAKES BACK TO HOTELS PAGE
 }
 
 // Invoking clearBookingSessionData() function
@@ -54,6 +56,9 @@ if (isset($_POST['cancel_booking'])) {
 
 };
 
+// ************************************************************
+
+// Function that creates a customer invoice
 function createDownloadableTextFile()
 {
     // Defining variables
@@ -86,6 +91,8 @@ function createDownloadableTextFile()
     echo $fileContent;
     exit;
 }
+
+// Isset returns true once the download invoice button is clicked and the 'download' parameter is present
 if (isset($_GET['download'])) {
     createDownloadableTextFile();
     exit;

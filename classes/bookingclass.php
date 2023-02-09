@@ -33,6 +33,7 @@ class Booking
         $this->completed = $completed;
     }
     
+    // Clears booking session when user clicks on cancel booking on the confirmBooking.php page
     public static function clearBookingSessionData()
     {
         $hotel = $_SESSION['hotel'];

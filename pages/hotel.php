@@ -8,6 +8,7 @@ require_once "../data/DatabaseConnector.php";
 $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
 
+// Hotel table qsl query
 $sql = 'SELECT * FROM hotel';
 $result = mysqli_query($conn, $sql);
 $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -16,7 +17,7 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 include '../includes/header.php';
 ?>
 
-
+<!-- Page jumbotron -->
 <div class="display-2 pt-4 pb-0 text-end bg-light">
     <div class="container">
         <span class="display-6 text-muted border-top">Welcome to,</span>
@@ -24,11 +25,16 @@ include '../includes/header.php';
     </div>
 </div>
 
+<!-- Hotel page containers -->
 <div class="album py-5 bg-light">
     <div class="container">
 
-        <!-- Hotel Page Components -->
-        <?php include '../components/hotelLayout.php'; ?>
-        <!--  -->
+        <!-- Hotel Page Component to display hotel cards -->
+        <?php include '../components/hotelLayout.php'; ?>\
 
+
+        <!-- Footer include -->
         <?php include '../includes/footer.php' ?>
+
+    </div>
+</div>
