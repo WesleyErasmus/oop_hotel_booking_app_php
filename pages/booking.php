@@ -83,12 +83,12 @@ $conn = $conn->getConnection();
 
         <div class="input-group">
             <!-- Check-in -->
-            <label class="form-control rounded-start-pill text-muted" for="checkindate"><b><span class="gradient-text">Select a Check-In Date: </span></b>
+            <label class="form-control rounded-start-pill text-muted" for="checkindate"><b><span class="">Select a Check-In Date: </span></b>
                 <input type="date" id="checkindate" name="checkindate" class="lead text-muted" required>
             </label>
 
             <!-- Check-out -->
-            <label class="form-control text-muted" for="checkoutdate"><b><span class="gradient-text">Select a Check-Out Date: </span></b>
+            <label class="form-control text-muted" for="checkoutdate"><b><span class="">Select a Check-Out Date: </span></b>
                 <input type="date" id="checkoutdate" name="checkoutdate" class="lead text-muted" required></label>
 
             <!-- Submit button -->

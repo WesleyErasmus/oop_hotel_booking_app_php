@@ -16,10 +16,10 @@ include '../includes/header.php';
 <!-- Displays selected hotel info in the DOM -->
 <div class="container">
     <h3 class="pb-4 mt-4 mb-4 fst-italic border-bottom">Please confirm your booking details at <?php echo $hotel['name']; ?></h3>
-    <div class="card mb-3 p-2 bg-light border-0 shadow">
+    <div class="card mb-3 p-2 bg-light border-0">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="<?php echo $hotel['thumbnail']; ?>" class="p-4 img-fluid" alt="Hotel Thumbnail">
+                <img src="<?php echo $hotel['thumbnail']; ?>" class="p-1 img-fluid" alt="Hotel Thumbnail">
             </div>
             <div class="col-md-8">
                 <div class="card-body m-2 pb-0">
@@ -40,7 +40,7 @@ include '../includes/header.php';
                     <div class="card-text"><i class="bi-building-fill-check fs-4 me-2" style="color: gray;"></i><b>Number of nights booked: </b><?php echo $nights; ?></div>
                     <div class="card-text"><i class="bi-credit-card fs-4 me-2" style="color: blue;"></i><b>Total cost of stay:</b> R<?php echo $totalCost; ?></div>
 
-                    <form class="mt-4" action="" method="post">
+                    <form class="mt-3" action="" method="post">
                         <input type="hidden" name="hotelid" value="<?php echo $hotelid; ?>">
                         <input type="hidden" name="checkindate" value="<?php echo $checkindate->format('Y-m-d') ?>">
                         <input type="hidden" name="checkoutdate" value="<?php echo $checkoutdate->format('Y-m-d'); ?>">
