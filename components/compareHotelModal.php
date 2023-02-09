@@ -67,7 +67,7 @@
                        </div> <!-- End of hotel display by id function -->
                    </div>
 
-                   <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+
                </div>
                <div class="modal-body">
                    <div class="card mb-3 rounded-0">
@@ -78,7 +78,13 @@
                                </div>
                                <div class="col-md-8">
                                    <div class="card-body">
-                                       <h5 class="card-title"><b><?php echo $data['name']; ?></b></h5>
+                                       <h5 class="card-title"><b><?php echo $data['name']; ?></b></h5><?php
+
+                                    // Comparing hotel price per night check
+                                       if($data['pricepernight'] < $hotel['pricepernight']) {
+                                        echo $compareHotelPricing = Hotel::compareHotelPricing();
+                                       }   
+                                        ?>
                                        <span>
                                            <!-- Hotel star for loop iterating iterating as many times as the hotel rating value -->
                                            <b><?php
@@ -86,7 +92,6 @@
                                                     echo '<i class="bi bi-star-fill" style="color: gold;"></i>';
                                                 }; ?>
                                            </b></span>
-                                       <span class="badge text-bg-success">Cheaper</span>
                                        <small>
                                            <div class="card-text">
                                                <span>Type:
