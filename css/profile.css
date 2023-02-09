@@ -1,0 +1,15 @@
+.profile-details-container {
+    width: 100% !important;
+}
+
+.form-container {
+    max-width: 575px !important;
+}
+
+.user-details-display {
+    display: flex;
+}
+
+.username-container {
+    padding: 2rem 1rem;
+}

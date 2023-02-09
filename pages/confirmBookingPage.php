@@ -15,7 +15,7 @@ include '../includes/header.php';
 
 <!-- Displays selected hotel info in the DOM -->
 <div class="container">
-    <h1>Confirm Booking details</h1>
+    <h3 class="pb-4 mt-4 mb-4 fst-italic border-bottom">Please confirm your booking details at <?php echo $hotel['name']; ?></h3>
     <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-4">

@@ -1,3 +1,6 @@
+<style>
+    <?php include '../css/profile.css'; ?>
+</style>
 <?php
 session_start();
 // Page includes
@@ -32,49 +35,64 @@ function updateProfile($user_id, $fullname, $email, $address, $conn)
     }
 }
 ?>
-<h1>Manage Profile</h1>
-<div>
-    <img width="100" src="../assets/001-hotel.png" alt="Profile image">
-    <div>
-        <h3><?php echo $fullname ?></h3>
-        <h4>Your username: <?php echo $username ?></h4>
+
+<div class="container">
+    <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Manage Your Profile</h3>
+    <div class="col-xl-10 col-xxl-8 px-4 py-5 profile-details-container">
+        <div class="row g-lg-6">
+            <div class="col-lg-5 ms-3 mb-3 p-0 user-details-display">
+                <div>
+                    <i class="bi-person-circle" style="font-size: 125px; color: cornflowerblue;"></i>
+                </div>
+                <div class="username-container">
+                    <h3 class="lh-1 mb-3">Welcome, <?php echo $fullname ?></h3>
+                    <h5 class="col-lg-10 text-muted">Username: <?php echo $username ?></h5>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-lg-7 p-0 form-container">
+                <!-- Account details edit form -->
+                <form action="" class="p-4 p-md-5 rounded-3 bg-light" method="post">
+                    <h5 class="text-muted">Update Your Account Information:</h5>
+
+                    <div class="form-label mb-3">
+                        <label for="fullname" class="form-label">Fullname</label>
+                        <input class="form-control" type="text" id="fullname" name="fullname" value="<?php echo $fullname; ?>" readonly>
+                    </div>
+
+                    <div class="form-label mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" value="<?php echo $email; ?>" readonly>
+                    </div>
+
+                    <div class="form-label mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input class="form-control" type="text" id="address" name="address" value="<?php echo $address; ?>" readonly>
+                    </div>
+
+                    <!-- Edit and save btn -->
+                    <div class="d-grid gap-2 mt-4 me-1 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary px-5" id="editButton" onclick="toggleEdit(this)">Edit</button>
+                        <button class="btn btn-success px-5" id="saveButton" onclick="submitForm(this)" disabled>Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<div class="container">
-    <h5>Your Account Information</h5>
-    
-    <!-- Display the edit form -->
-    <form action="" method="post">
-        <div>
-            <label for="fullname">Fullname:</label>
-            <input type="text" id="fullname" name="fullname" value="<?php echo $fullname; ?>" readonly>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?php echo $email; ?>" readonly>
-        </div>
-        <div>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" value="<?php echo $address; ?>" readonly>
-        </div>
-    </form>
 
-    <!-- Edit and save btn -->
-    <button id="editButton" onclick="toggleEdit(this)">Edit</button>
-    <button id="saveButton" onclick="submitForm(this)" disabled>Save</button>
-    
-    <?php
-    if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['address'])) {
-        $fullname = $_POST['fullname'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        if (updateProfile($user_id, $fullname, $email, $address, $conn)) {
-            echo "Update successful";
-        } else {
-            echo "Update failed. Please try again";
-        }
+<?php
+if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['address'])) {
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    if (updateProfile($user_id, $fullname, $email, $address, $conn)) {
+        return true;
+    } else {
+        return false;
     }
-    ?>
+}
+?>
 </div>
 <!-- JS toggle between save and edit disable buttons -->
 <script>
