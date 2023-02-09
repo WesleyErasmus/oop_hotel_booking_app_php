@@ -100,9 +100,13 @@ function updateProfile($user_id, $full_name, $email, $address, $conn)
 <?php
 // Checks if the values of the 'fullname', 'email', and 'address' keys are in the $_POST array
 if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['address'])) {
-    $full_name = $_POST['fullname'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
+    // $full_name = $_POST['fullname'];
+    // $email = $_POST['email'];
+    // $address = $_POST['address'];
+    // Sanitizing inputs with mysqli_real_escape_string() to avoid SQL injections
+    $full_name = mysqli_real_escape_string($conn, $_POST['fullname']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
 
     // Invoke updateProfile function and pass required parameters
     if (updateProfile($user_id, $full_name, $email, $address, $conn)) {
