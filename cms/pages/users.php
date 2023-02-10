@@ -30,6 +30,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <!-- Check if clear button or search button in the search form is set -->
                 <?php
                 if (isset($_GET['clear'])) {
+                    // Redirect user back to the same page (refreshes current page)
                     echo "<meta http-equiv='refresh' content='0;url=../pages/users.php'>";
                     exit;
                 }
@@ -40,10 +41,10 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 }
                 ?>
                 <!-- Search form -->
-                <form action="">
-                    <input type="text" name="search" placeholder="Search Users" value="<?php echo $search; ?>">
-                    <button type="submit">Search</button>
-                    <button type="submit" name="clear" value="clear">Clear</button>
+                <form action="" class="d-flex gap-2">
+                    <input type="text" name="search" class="form-control" placeholder="Search Users" value="<?php echo $search; ?>">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-outline-primary" name="clear" value="clear">Clear</button>
                 </form>
             </div>
         </div>

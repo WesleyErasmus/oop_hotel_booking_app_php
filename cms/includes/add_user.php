@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-success btn mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add New User
 </button>
 
@@ -131,6 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty
     $result = $customer->signup($username, $full_name, $password, $email, $address, $phone_number);
 
     if ($result) {
+        // Redirect user back to the same page (refreshes current page)
         echo "<meta http-equiv='refresh' content='0;url=../pages/users.php'>";
         exit;
     }

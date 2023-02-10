@@ -22,7 +22,7 @@ class User
     // User / customer login function
     public static function login($username, $password)
     {
-        require_once "../data/DatabaseConnector.php";
+        // require_once "../data/DatabaseConnector.php";
         $conn = new DatabaseConnector();
         $conn = $conn->getConnection();
 
@@ -58,10 +58,13 @@ class User
                 $_SESSION["user"] = $user;
                 $_SESSION['logged_in'] = true;
                 // Redirects user to hotel.php page
-                echo "<meta http-equiv='refresh' content='0;url=../pages/hotel.php'>";
-                exit;
+                // echo "<meta http-equiv='refresh' content='0;url=../pages/hotel.php'>";
+                // exit;
+
+                // return true;
 
                 return true;
+                exit;
             }
         }
         return false;

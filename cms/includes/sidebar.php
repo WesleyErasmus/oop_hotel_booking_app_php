@@ -42,7 +42,9 @@
             </li>
         </ul>
         <hr>
-        <button class="btn btn-primary">Logout</button>
+        <button class="btn btn-primary">
+            <a class="text-white text-decoration-none" href="../pages/login.php">Logout</a>
+        </button>
     </div>
 
     <!-- Bootstrap JS -->

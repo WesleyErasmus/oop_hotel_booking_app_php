@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-success btn mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add New Hotel
 </button>
 
@@ -160,6 +160,7 @@ if (isset($_POST['name']) && isset($_POST['type']) && isset($_POST['rating']) &&
         $conn,
         $query
     )) {
+        // Redirect user back to the same page (refreshes current page)
         echo "<meta http-equiv='refresh' content='0;url=../pages/hotels.php'>";
         exit;
     } else {

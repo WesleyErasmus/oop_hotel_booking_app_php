@@ -66,6 +66,8 @@ include '../includes/header.php'; ?>
 </div>
 
 <?php
+// Require Db connector
+require_once "../data/DatabaseConnector.php";
 // Include user class
 require_once '../classes/User.php';
 
@@ -81,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty
     $result = User::login($username, $password);
     // If login function runs successfully then redirects user to the hotels page
     if ($result) {
-        header("Location: ../pages/hotel.php");
+        echo "<meta http-equiv='refresh' content='0;url=../pages/hotel.php'>";
         exit;
     }
 }
