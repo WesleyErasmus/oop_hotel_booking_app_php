@@ -73,6 +73,5 @@ include '../includes/header.php';
         </div>
     </div>
 </div>
-
 <!-- Footer include -->
 <?php include '../includes/footer.php' ?>
