@@ -19,8 +19,6 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Include app header
 include '../includes/header.php';
-
-print_r($_SESSION);
 ?>
 
 <!-- Page jumbotron -->
