@@ -15,10 +15,12 @@
     ?>
 
 </head>
+
 <body>
 
-<!-- App Home page -->
-<?php header("location: pages/hotel.php") ?>
+    <!-- App Home page -->
+    <?php header("location: pages/hotel.php") ?>
 
 </body>
+
 </html>

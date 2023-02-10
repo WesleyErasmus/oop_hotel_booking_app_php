@@ -57,11 +57,6 @@ class User
             if (!empty($user)) {
                 $_SESSION["user"] = $user;
                 $_SESSION['logged_in'] = true;
-                // Redirects user to hotel.php page
-                // echo "<meta http-equiv='refresh' content='0;url=../pages/hotel.php'>";
-                // exit;
-
-                // return true;
 
                 return true;
                 exit;

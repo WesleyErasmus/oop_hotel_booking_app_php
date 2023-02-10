@@ -1,8 +1,22 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn btn-lg mt-3 ms-3 shadow-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Add New User
-</button>
+<?php
+// If an admin user is signed in the they can add a new user otherwise the button is disabled
 
+if ($admin == !"admin") {
+
+    // Disabled button
+    echo '<button type="button" class="btn btn-sm btn-primary btn my-2 ms-2"    data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>
+    Add New User
+    </button>';
+} else {
+
+    // Not disabled button
+    echo '<button type="button" class="btn btn-sm btn-primary btn my-2 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add New User
+    </button>';
+}
+
+?>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

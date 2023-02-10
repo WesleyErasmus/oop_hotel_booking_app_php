@@ -1,3 +1,17 @@
+<?php
+// User session storage
+$logged_in = $_SESSION['logged_in'];
+$admin = $_SESSION["user"];
+
+// User class where logout function is stored
+include '../../classes/User.php';
+
+if (
+    isset($_GET['logout']) && $_GET['logout'] == true
+) {
+    User::logout();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +29,7 @@
 
 <body>
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh; position: fixed;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark bg-opacity-75 bg-gradient" style="width: 280px; height: 100vh; position: fixed;">
         <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <div class="fs-2 gradient-text">StayInn.com</div>
         </div>
@@ -38,16 +52,19 @@
                     Hotels
                 </a>
             </li>
-            <li>
-                <a href="../../index.php" class="nav-link text-white">
-                    Website
+            <hr>
+            <li class="fs-5">
+                <a href="../../index.php" class="nav-link text-white mb-2 border-bottom rounded-0">
+                    StayInn.com<span><i class="ms-1 gradient-text bi-rocket-takeoff-fill" style="font-size: 1.2rem;"></i></span>
                 </a>
             </li>
         </ul>
-        <hr>
-        <button class="btn btn-outline-secondary">
-            <a class="text-white text-decoration-none" href="../pages/login.php">Logout</a>
-        </button>
+
+        <!-- <form action="" method="post"> -->
+            <button name="logout" type="submit" class="btn btn-outline-secondary">
+                <a class="text-white text-decoration-none" href="../pages/users.php?logout=true">Logout</a>
+            </button>
+        <!-- </form> -->
     </div>
 
     <!-- Bootstrap JS -->

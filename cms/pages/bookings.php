@@ -1,3 +1,6 @@
+<style>
+    <?php include '../css/main.css'; ?>
+</style>
 <?php
 session_start();
 // Db Connect
@@ -18,13 +21,16 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php include '../includes/sidebar.php'; ?>
 
 <!-- Page container -->
-<div style="margin-left: 280px;">
+<div class="ps-2" style="margin-left: 280px;">
     <!-- Page top navbar -->
-    <nav class="navbar bg-light sticky-top shadow-sm">
+    <nav class="navbar sticky-top">
         <div class="container-fluid">
 
             <!-- Page heading -->
-            <h1 class="p-4">MANAGE BOOKINGS</h1>
+            <h2 class="text-muted border-bottom pb-2">
+                <i class="bi-calendar-plus" style="font-size: 2rem; color: darkslategrey;"></i>
+                Manage Bookings
+            </h2>
             <div class="d-flex">
 
                 <!-- Check if clear button or search button in the search form is set -->
@@ -43,26 +49,34 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <!-- Search form -->
                 <form action="" class="d-flex gap-2">
                     <input type="text" name="search" class="form-control" placeholder="Search Bookings" value="<?php echo $search; ?>">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <button type="submit" class="btn btn-outline-primary" name="clear" value="clear">Clear</button>
+
+                    <!-- Search btn -->
+                    <button type="submit" class="btn btn-secondary">Search</button>
+
+                    <!-- Clear btn -->
+                    <button type="submit" class="btn btn-outline-secondary" name="clear" value="clear">Clear</button>
                 </form>
             </div>
     </nav>
 
+
+    <!-- Include sort component -->
+    <?php include '../components/sort.php'; ?>
+
+
+    <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
+    <form class="ps-0 mt-5 pt-2" action="?booking_sort=<?php echo $sort_booking; ?>" method="post">
+
+        <input name="booking_sort" id="sort_button" class="btn btn-link text-secondary text-decoration-none" type="submit" value="Sort By Hotel ID">
+
+        <?php echo $sort_booking == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
+
+    </form>
+
     <!-- Bookings table -->
-    <div class="container-fluid p-3">
-
-        <!-- Include sort component -->
-        <?php include '../components/sort.php'; ?>
-
-        <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
-        <form action="?booking_sort=<?php echo $sort_booking; ?>" method="post">
-            <input name="booking_sort" id="sort_button" class="btn btn-link text-decoration-none" type="submit" value="Sort By ID">
-            <?php echo $sort_booking == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
-        </form>
-
+    <div class="table-container mt-2">
         <table class="table table-bordered table-hover">
-            <thead>
+            <thead class="gradient-bg sticky-top py-1">
                 <tr>
                     <th>Booking No.</th>
                     <th>Customer Id</th>
@@ -70,7 +84,7 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <th>Check-In Data</th>
                     <th>Check-Out Date</th>
                     <th>Total Cost</th>
-                    <th>Cancelled</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <?php

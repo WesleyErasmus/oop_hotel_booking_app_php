@@ -15,19 +15,24 @@ include '../components/search.php';
 $sql = "SELECT * FROM user";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// print_r($_SESSION);
 ?>
 
 <!-- Include side navbar -->
 <?php include '../includes/sidebar.php'; ?>
 
 <!-- Page container -->
-<div class="ps-3" style="margin-left: 280px;">
+<div class="ps-2" style="margin-left: 280px;">
     <!-- Page top navbar -->
     <nav class="navbar sticky-top">
         <div class="container-fluid">
 
             <!-- Page heading -->
-            <h1 class="text-muted">Manage Users</h1>
+            <h2 class="text-muted border-bottom pb-2">
+                <i class="bi-person" style="font-size: 2rem; color: darkslategrey;"></i>
+                Manage Users
+            </h2>
             <div class="d-flex">
 
                 <!-- Check if clear button or search button in the search form is set -->
@@ -46,8 +51,12 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <!-- Search form -->
                 <form action="" class="d-flex gap-2">
                     <input type="text" name="search" class="form-control" placeholder="Search Users" value="<?php echo $search; ?>">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <button type="submit" class="btn btn-outline-primary" name="clear" value="clear">Clear</button>
+
+                    <!-- Search btn -->
+                    <button type="submit" class="btn btn-secondary">Search</button>
+
+                    <!-- Clear btn -->
+                    <button type="submit" class="btn btn-outline-secondary" name="clear" value="clear">Clear</button>
                 </form>
             </div>
         </div>
@@ -59,29 +68,29 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     </div>
 
-    <!-- Users table -->
     <!-- Include sort component -->
     <?php include '../components/sort.php'; ?>
 
     <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
-    <form class="ps-2 pt-2" action="?user_sort=<?php echo $sort_user; ?>" method="post">
+    <form class="ps-0 pt-2" action="?user_sort=<?php echo $sort_user; ?>" method="post">
 
-        <input name="user_sort" id="sort_button" class="btn btn-link text-decoration-none" type="submit" value="Sort By Name">
+        <input name="user_sort" id="sort_button" class="btn btn-link text-secondary text-decoration-none" type="submit" value="Sort By Name">
 
         <?php echo $sort_user == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
 
     </form>
 
+    <!-- Users table -->
     <div class="table-container mt-2">
         <table class="table table-bordered table-hover">
             <thead class="gradient-bg sticky-top py-1">
                 <tr>
-                    <th>id</th>
+                    <th>ID</th>
                     <th>Full name</th>
-                    <th>username</th>
-                    <th>address</th>
-                    <th>password</th>
-                    <th>email</th>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Password</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <?php
