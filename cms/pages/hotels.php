@@ -9,7 +9,7 @@ $sql = "SELECT * FROM hotel";
 $result = mysqli_query($conn, $sql);
 $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-
+<?php include '../includes/sidebar.php'; ?>
 <div class="container">
     <table class="table table-hover">
         <thead>

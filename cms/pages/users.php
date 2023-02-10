@@ -9,6 +9,7 @@ $sql = "SELECT * FROM user";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
+<?php include '../includes/sidebar.php'; ?>
 
 <div class="container">
     <table class="table table-hover">

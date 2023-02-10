@@ -9,7 +9,7 @@ $sql = "SELECT * FROM booking";
 $result = mysqli_query($conn, $sql);
 $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-
+<?php include '../includes/sidebar.php'; ?>
 <div class="container">
     <table class="table table-hover">
         <thead>
