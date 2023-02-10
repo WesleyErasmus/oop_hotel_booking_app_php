@@ -5,13 +5,50 @@ require_once '../../data/DatabaseConnector.php';
 $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
 
+// Include search function
+include '../components/search.php';
+
+// Select all booking data query
 $sql = "SELECT * FROM booking";
 $result = mysqli_query($conn, $sql);
 $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
+
+<!-- Include side navbar -->
 <?php include '../includes/sidebar.php'; ?>
+
+<!-- Page container -->
 <div style="margin-left: 280px;">
-    <h1 class="p-4 sticky-top bg-light shadow-sm">MANAGE BOOKINGS</h1>
+    <!-- Page top navbar -->
+    <nav class="navbar bg-light sticky-top shadow-sm">
+        <div class="container-fluid">
+
+            <!-- Page heading -->
+            <h1 class="p-4">MANAGE BOOKINGS</h1>
+            <div class="d-flex">
+
+                <!-- Check if clear button or search button in the search form is set -->
+                <?php
+                if (isset($_GET['clear'])) {
+                    echo "<meta http-equiv='refresh' content='0;url=../pages/bookings.php'>";
+                    exit;
+                }
+                $search = "";
+                // Calling the search_bookings function
+                if (isset($_GET['search'])) {
+                    $booking = search_bookings();
+                }
+                ?>
+                <!-- Search form -->
+                <form action="">
+                    <input type="text" name="search" placeholder="Search Bookings" value="<?php echo $search; ?>">
+                    <button type="submit">Search</button>
+                    <button type="submit" name="clear" value="clear">Clear</button>
+                </form>
+            </div>
+    </nav>
+
+    <!-- Bookings table -->
     <div class="container-fluid p-3">
         <table class="table table-bordered table-hover">
             <thead>
@@ -48,4 +85,4 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php endforeach; ?>
         </table>
     </div>
-    </div>
+</div>
