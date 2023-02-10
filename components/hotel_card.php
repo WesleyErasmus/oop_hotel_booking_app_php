@@ -38,19 +38,27 @@
                     <b>R<?php echo $data['pricepernight']; ?>
                     </b> /per night</d>
 
-                    <div class="btn-group float-end">
+                    <div class="d-flex flex-column float-end">
+                      <!-- NOT WORKING -- NEED TO FIX -->
                       <!-- Must be logged in popover conditional. Popover is triggered if user is not logged in -->
-                      <span class="d-inline-block" tabindex="0" <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-                                                                  echo '';
-                                                                } else {
-                                                                  echo 'data-bs-toggle="popover"';
-                                                                } ?> data-bs-trigger="focus" data-bs-html="true" data-bs-title="You must be logged in to use this feature" data-bs-content="<a class='btn btn-sm btn-success' href='../pages/login.php'>Login Here</a> <a class='btn btn-sm btn-primary' href='../pages/sign_up.php'>Sign-up Here</a>">
+                      <span class="col d-flex ">
                         <!-- Button disabled conditional. Button is disabled if user is not logged in -->
-                        <a href="../pages/hotel_view.php?id=<?php echo $data['id']; ?>" class="btn btn-outline-secondary <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-                                                                                                                            echo '';
-                                                                                                                          } else {
-                                                                                                                            echo 'disabled';
-                                                                                                                          } ?>">Explore More</a></span>
+                        <a href="../pages/hotel_view.php?id=<?php echo $data['id']; ?>" class="btn btn-outline-secondary 
+                        
+                        <?php
+                        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                          echo '';
+                        } else {
+                          echo 'disabled';
+                        } ?>">View Hotel</a></span>
+                      <?php
+                      if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                        echo '';
+                      } else {
+                        echo '<small><span class="text-muted"><a href="../pages/login.php">Login to View Hotel</a></span></small>';
+                      }
+                      ?>
+
                     </div>
                 </div>
 
@@ -63,7 +71,3 @@
     <?php endforeach; ?>
   </div>
 </article>
-<script>
-  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>

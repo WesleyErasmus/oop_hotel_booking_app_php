@@ -22,7 +22,6 @@ class User
     // User / customer login function
     public static function login($username, $password)
     {
-        // require_once "../data/DatabaseConnector.php";
         $conn = new DatabaseConnector();
         $conn = $conn->getConnection();
 
@@ -62,6 +61,7 @@ class User
                 exit;
             }
         }
+        
         return false;
     }
 

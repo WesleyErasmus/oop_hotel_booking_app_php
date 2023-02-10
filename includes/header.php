@@ -92,7 +92,4 @@
     </nav>
 
     <!-- App pages container -->
-    <div class="container-fluid">
-
-        <!-- Includes Bootstrap JS scr scripts -->
-        <?php include '../includes/footer.php'; ?>
+    <div class="container-fluid">        
