@@ -82,7 +82,6 @@ class User
     // Customer Sign up function
     public static function signup($username, $full_name, $password, $email, $address, $phone_number)
     {
-        require_once "../data/DatabaseConnector.php";
         $conn = new DatabaseConnector();
         $conn = $conn->getConnection();
 

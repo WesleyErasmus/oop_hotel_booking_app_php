@@ -22,8 +22,8 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <!-- Page top navbar -->
     <nav class="navbar bg-light sticky-top shadow-sm">
         <div class="container-fluid">
-            
-        <!-- Page heading -->
+
+            <!-- Page heading -->
             <h1 class="p-4">MANAGE USERS</h1>
             <div class="d-flex">
 
@@ -48,6 +48,12 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </div>
         </div>
     </nav>
+
+    <div class="position-relative">
+        <!-- Add user modal -->
+        <?php include '../includes/add_user.php' ?>
+
+    </div>
 
     <!-- Users table -->
     <div class="container-fluid p-3">

@@ -93,6 +93,7 @@ include '../includes/header.php'; ?>
 
 <?php
 // Include user class
+require_once "../data/DatabaseConnector.php";
 require_once '../classes/User.php';
 
 // Invokes signup function if the signup form is filled in and submitted
