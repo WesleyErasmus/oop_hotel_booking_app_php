@@ -1,3 +1,6 @@
+<style>
+    <?php include '../css/main.css'; ?>
+</style>
 <?php
 session_start();
 // Db Connect
@@ -58,6 +61,16 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <!-- Hotels table -->
     <div class="container-fluid p-3">
+
+        <!-- Include sort component -->
+        <?php include '../components/sort.php'; ?>
+
+        <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
+        <form action="?hotel_sort=<?php echo $sort_hotel; ?>" method="post">
+            <input name="hotel_sort" id="sort_button" class="btn btn-link text-decoration-none" type="submit" value="Sort By Hotel">
+            <?php echo $sort_hotel == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
+        </form>
+
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>

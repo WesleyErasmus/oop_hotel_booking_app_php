@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn mt-3 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-success btn btn-lg mt-3 ms-3 shadow-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add New User
 </button>
 

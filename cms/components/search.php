@@ -65,4 +65,3 @@ function search_hotels()
     // Returning search results
     return $hotel;
 }
-?>

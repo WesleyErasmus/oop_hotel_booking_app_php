@@ -1,3 +1,6 @@
+<style>
+    <?php include '../css/main.css'; ?>
+</style>
 <?php
 session_start();
 // Db Connect
@@ -18,13 +21,13 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php include '../includes/sidebar.php'; ?>
 
 <!-- Page container -->
-<div style="margin-left: 280px;">
+<div class="ps-3" style="margin-left: 280px;">
     <!-- Page top navbar -->
-    <nav class="navbar bg-light sticky-top shadow-sm">
+    <nav class="navbar sticky-top">
         <div class="container-fluid">
 
             <!-- Page heading -->
-            <h1 class="p-4">MANAGE USERS</h1>
+            <h1 class="text-muted">Manage Users</h1>
             <div class="d-flex">
 
                 <!-- Check if clear button or search button in the search form is set -->
@@ -57,9 +60,21 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </div>
 
     <!-- Users table -->
-    <div class="container-fluid p-3">
+    <!-- Include sort component -->
+    <?php include '../components/sort.php'; ?>
+
+    <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
+    <form class="ps-2 pt-2" action="?user_sort=<?php echo $sort_user; ?>" method="post">
+
+        <input name="user_sort" id="sort_button" class="btn btn-link text-decoration-none" type="submit" value="Sort By Name">
+
+        <?php echo $sort_user == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
+
+    </form>
+
+    <div class="table-container mt-2">
         <table class="table table-bordered table-hover">
-            <thead>
+            <thead class="gradient-bg sticky-top py-1">
                 <tr>
                     <th>id</th>
                     <th>Full name</th>

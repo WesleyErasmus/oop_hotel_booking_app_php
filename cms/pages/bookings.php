@@ -51,6 +51,16 @@ $booking = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <!-- Bookings table -->
     <div class="container-fluid p-3">
+
+        <!-- Include sort component -->
+        <?php include '../components/sort.php'; ?>
+
+        <!-- Sort Form: 1) The form action adds the variable name plus =desc or =asc in the page URL. 2) Using a turnery statement change the caret icon depending on if $sort_variable is asc or desc. -->
+        <form action="?booking_sort=<?php echo $sort_booking; ?>" method="post">
+            <input name="booking_sort" id="sort_button" class="btn btn-link text-decoration-none" type="submit" value="Sort By ID">
+            <?php echo $sort_booking == 'asc' ? '<i class="bi-caret-down-fill"></i>' : '<i class="bi-caret-up-fill"></i>'; ?>
+        </form>
+
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>

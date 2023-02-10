@@ -1,0 +1,34 @@
+nav {
+    height: 100px;
+}
+.table-container {
+    position: fixed;
+    top: 200px;
+    right: 1rem;
+    left: 280px;
+    bottom: 1rem;
+    /* width: 83.75vw; */
+    overflow-y: scroll;
+    padding-left: 1rem;
+    margin: 0;
+    /* height: 68vh; */
+}
+
+.gradient-text {
+    color: #30b8e6;
+    background-image: -webkit-linear-gradient(0deg, #30b8e6 0%, #b54abd 61%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gradient background */
+.gradient-bg {
+    padding: 0.5rem;
+    width: 100%;
+    border: none !important;
+    color: #fff !important;
+    background-color: #30b8e6;
+    background-image: -webkit-linear-gradient(0deg, #62d4fa -10%, #b54abd 61%);
+}

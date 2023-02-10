@@ -10,14 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <!-- Bootstrap icons CDN link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 
 <body>
 
     <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh; position: fixed;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-4">StayInn.com Admin Center</span>
-        </a>
+        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <div class="fs-2 gradient-text">StayInn.com</div>
+        </div>
+        <div>Admin Center</div>
+
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
@@ -42,7 +45,7 @@
             </li>
         </ul>
         <hr>
-        <button class="btn btn-primary">
+        <button class="btn btn-outline-secondary">
             <a class="text-white text-decoration-none" href="../pages/login.php">Logout</a>
         </button>
     </div>
