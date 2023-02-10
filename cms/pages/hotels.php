@@ -49,6 +49,12 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
     </nav>
 
+    <div class="position-relative">
+        <!-- Add hotel modal -->
+        <?php include '../includes/add_hotel.php' ?>
+
+    </div>
+
     <!-- Hotels table -->
     <div class="container-fluid p-3">
         <table class="table table-bordered table-hover">
