@@ -1,8 +1,8 @@
 <!-- Button trigger modal -->
 <?php
 // If an admin user is signed in the they can add a new user otherwise the button is disabled
-
-if ($admin == !"admin") {
+if ($admin['username'] !== "admin") {
+    // User session data is stored in ../includes/sidebar.php
 
     // Disabled button
     echo '<button type="button" class="btn btn-sm btn-primary btn my-2 ms-2"    data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>

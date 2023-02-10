@@ -1,5 +1,8 @@
 <?php
 session_start();
+// Logs user out after 1hr of inactivity
+include '../includes/session_tracking.php';
+
 require_once "../data/DatabaseConnector.php";
 $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
@@ -85,7 +88,7 @@ function cancelBooking($booking_no)
                     <td>R<?php echo $total_cost; ?></td>
                     <td>
 
-                    <!-- Form with hidden input with the value of the booking no used to delete a booking based on it's id -->
+                        <!-- Form with hidden input with the value of the booking no used to delete a booking based on it's id -->
                         <form action="" method="post">
                             <input type="hidden" name="booking_no" value="<?php echo $booking_no; ?>">
                             <input class="btn btn-danger" type="submit" name="cancel_booking" value="Cancel Booking">
@@ -103,7 +106,7 @@ function cancelBooking($booking_no)
     <!-- Cancelled bookings container -->
     <div>
         <h3 class="pb-4 mb-4 mt-4 fst-italic border-bottom">Cancelled Bookings</h3>
-        
+
         <!-- Cancelled bookings include -->
         <?php include '../components/cancelled_bookings.php'; ?>
 

@@ -3,6 +3,12 @@
 </style>
 <?php
 session_start();
+// Restrict assess to users not signed in by redirecting them to login page
+include '../includes/restrict_access.php';
+
+// Logs user out after 1hr of inactivity
+include '../includes/session_tracking.php';
+
 // Include app header
 include '../includes/header.php';
 // Include booking class

@@ -3,6 +3,14 @@
 </style>
 <?php
 session_start();
+// Restrict assess to users not signed in by redirecting them to login page
+include '../../includes/restrict_access.php';
+
+// Logs user out after 1hr of inactivity
+include '../../includes/session_tracking.php';
+
+// Code for the protected page goes here...
+
 // Db Connect
 require_once '../../data/DatabaseConnector.php';
 $conn = new DatabaseConnector();
@@ -15,8 +23,6 @@ include '../components/search.php';
 $sql = "SELECT * FROM user";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-// print_r($_SESSION);
 ?>
 
 <!-- Include side navbar -->

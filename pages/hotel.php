@@ -4,6 +4,10 @@
 <?php
 session_start();
 
+// Logs user out after 1hr of inactivity
+include '../includes/session_tracking.php';
+
+// Db connector
 require_once "../data/DatabaseConnector.php";
 $conn = new DatabaseConnector();
 $conn = $conn->getConnection();
@@ -15,6 +19,8 @@ $hotel = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Include app header
 include '../includes/header.php';
+
+print_r($_SESSION);
 ?>
 
 <!-- Page jumbotron -->
