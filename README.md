@@ -23,7 +23,6 @@ You should now be able to access the StayInn.com project in your browser through
 ```bash
 Upon visiting the website, the user will be directed to the Hotels page.
 To access the rest of the websites functionality, the user must first sign in.
-If the user clicks on the "explore more" button, a popover will appear asking the user to sign up or log in.
 
 The user can then follow the links to sign up or log in. 
 The sign-up form will add a new user to the SQL database, while the login page will redirect the user back to the Hotels page.
